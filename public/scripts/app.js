@@ -45,8 +45,13 @@ const data = [
     "created_at": 1461113796368
   }
 ];
+function escape(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
- function createTweetElement(tweets) {
+function createTweetElement(tweets) {
 let user = tweets.user.name;
 let avatar = tweets.user.avatars.small;
  let userHandle = tweets.user.handle;
@@ -55,14 +60,14 @@ let avatar = tweets.user.avatars.small;
  const tweetHTML =
 `<article>
 <header>
-<img class="avatar" src="${avatar}" />
-<h3 class="userName">${user}</h3>
-<p class="handle">${userHandle}</p>
+<img class="avatar" src="${escape(avatar)}" />
+<h3 class="userName">${escape(user)}</h3>
+<p class="handle">${escape(userHandle)}</p>
 </header>
- <p class="tweet-content">${content}</p>
+ <p class="tweet-content">${escape(content)}</p>
 <footer>
 <div>
-<p class="date">${dateCreated} Days ago</p>
+<p class="date">${escape(dateCreated)} Days ago</p>
 </div>
 <div class="icons">
      <i class="fas fa-heart"></i>
@@ -77,7 +82,7 @@ return tweetHTML;
 
 function renderTweets(tweets) {
   tweets.forEach(function(tweet) {
-     $("#tweets-container").append(createTweetElement(tweet));
+     $("#tweets-container").prepend(createTweetElement(tweet));
   console.log(tweet);
   });
 }
@@ -95,12 +100,15 @@ $( "#newTweet" ).on( "submit", function( event ) {
   } else if (tweetChar === 0) {
     alert("Come on, you have to tweet something!");
   } else {
+
      $.ajax({
          type: "POST",
          url:"/tweets",
          data: $("#newTweet").serialize(),
          success: function(data){
+
          loadTweets();
+         $("#tweetSubmit").val("");
        }
        });
      }
