@@ -61,39 +61,38 @@ article header {
   padding-left:10px;
 }
 
-article .username {
+article .userName {
 
 }
 
 article .avatar {
   float:left;
-  height:70px;
-  width:70px;
+  height:60px;
+  width:60px;
   padding-left:10px;
   padding-right:10px;
   padding-top: 10px;
 }
 
 article:hover {
-  opacity: 2;
+  opacity: 1;
   border: 1px solid black;
-
-
 }
+
 
 header .username {
   float:left;
   font-size: 30px;
   font-weight:700;
   vertical-align:top;
-
 }
+
 header .handle {
   float:right;
   color:gray;
 }
 
-.tweet {
+.tweet-content {
 font-size:1em;
 text-align:left;
 padding-left:10px;
@@ -121,4 +120,6 @@ footer .icons {
 footer .date {
   padding-left:10px;
 }
+
+
 
