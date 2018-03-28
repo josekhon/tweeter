@@ -62,12 +62,12 @@ let avatar = tweets.user.avatars.small;
  <p class="tweet-content">${content}</p>
 <footer>
 <div>
-<p class="date">${dateCreated}</p>
+<p class="date">${dateCreated} Days ago</p>
 </div>
-<div>
-     <img class="icons" src="/images/heart">
-     <img class="icons" src="/images/retweet">
-     <img class="icons" src="/images/flag">
+<div class="icons">
+     <i class="fas fa-heart"></i>
+     <i class="fas fa-flag"></i>
+     <i class="fas fa-retweet"></i>
    </div>
  </footer>
 </article>`;
@@ -86,7 +86,45 @@ function renderTweets(tweets) {
 
 $(document).ready(function() {
   renderTweets(data);
-});
+
+$( "#newTweet" ).on( "submit", function( event ) {
+  event.preventDefault();
+  let tweetChar = $("#newTweet textarea").val().length;
+  if(tweetChar > 140) {
+    alert("It's a tweet, not an essay! Try again");
+  } else if (tweetChar === 0) {
+    alert("Come on, you have to tweet something!");
+  } else {
+     $.ajax({
+         type: "POST",
+         url:"/tweets",
+         data: $("#newTweet").serialize(),
+         success: function(data){
+         loadTweets();
+       }
+       });
+     }
+     });
+
+function loadTweets() {
+  $.ajax({
+        url: "/tweets",
+        type: "GET",
+        dataType: "json",
+success: function (data) {
+$("#tweets-container").empty();
+renderTweets(data);
+        }
+      });
+    }
+ loadTweets();
+ });
+
+
+
+
+
+
 
 
 

@@ -15,12 +15,12 @@ main {
 }
 
 hr {
-    margin-bottom:20px;
-    margin-top:0px;
-    border: 0;
-    height: 1px;
-    background: #333;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+  margin-bottom:20px;
+  argin-top:0px;
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
 h2 {
@@ -49,6 +49,7 @@ article {
   margin-bottom:2em;
   border-radius:5px;
   border: 1px solid lightgray;
+  opacity:0.7;
 
 }
 article header {
@@ -61,9 +62,7 @@ article header {
   padding-left:10px;
 }
 
-article .userName {
 
-}
 
 article .avatar {
   float:left;
@@ -79,46 +78,54 @@ article:hover {
   border: 1px solid black;
 }
 
+article:hover .svg-inline--fa {
+  visibility:visible;
+}
 
-header .username {
+article header .userName {
   float:left;
-  font-size: 30px;
+  font-size: 22px;
   font-weight:700;
   vertical-align:top;
 }
 
-header .handle {
+article header .handle {
   float:right;
+  margin-right: 0;
   color:gray;
 }
 
 .tweet-content {
-font-size:1em;
-text-align:left;
-padding-left:10px;
-padding-right:10px;
-padding-bottom: 5px;
-padding-top: 5px;
+  font-size:1em;
+  text-align:left;
+  padding-left:10px;
+  padding-right:10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 
-footer {
+article footer {
   border-top:2px solid ;
   border-top-color: #E8E8E8;
-padding-bottom: 3px;
+  padding-bottom: 3px;
 }
 
-footer .icons {
-  display: inline-block;
-  float:right;
-  height:30px;
-  margin-left:5px;
-  padding-right: 10px;
-  margin-top:-20px;
+article footer .svg-inline--fa {
+  margin-right:5px;
+  visibility: hidden;
+  color:#00a087;
 
 }
 
-footer .date {
+article footer .date {
   padding-left:10px;
+
+}
+
+article footer .icons {
+
+  float: right;
+  margin-top: -30px;
 }
 
 
