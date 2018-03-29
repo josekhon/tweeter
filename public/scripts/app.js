@@ -92,6 +92,7 @@ function renderTweets(tweets) {
 $(document).ready(function() {
   renderTweets(data);
 
+
 $( "#newTweet" ).on( "submit", function( event ) {
   event.preventDefault();
   let tweetChar = $("#newTweet textarea").val().length;
@@ -126,7 +127,18 @@ renderTweets(data);
       });
     }
  loadTweets();
+
+
+
+     $(".new-tweet").hide();
+    $("#compose").on("click", function(){
+      $(".new-tweet").slideToggle();
+      $("textarea").focus();
+    });
+
  });
+
+
 
 
 
