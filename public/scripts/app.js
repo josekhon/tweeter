@@ -1,12 +1,10 @@
-
-const data = [
-  {
+const data = [{
     "user": {
       "name": "Newton",
       "avatars": {
-        "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
+        "small": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
         "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-        "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
+        "large": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
       },
       "handle": "@SirIsaac"
     },
@@ -19,11 +17,12 @@ const data = [
     "user": {
       "name": "Descartes",
       "avatars": {
-        "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
+        "small": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
         "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-        "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
+        "large": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
       },
-      "handle": "@rd" },
+      "handle": "@rd"
+    },
     "content": {
       "text": "Je pense , donc je suis"
     },
@@ -33,9 +32,9 @@ const data = [
     "user": {
       "name": "Johann von Goethe",
       "avatars": {
-        "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
+        "small": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
         "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-        "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
+        "large": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
       },
       "handle": "@johann49"
     },
@@ -45,6 +44,7 @@ const data = [
     "created_at": 1461113796368
   }
 ];
+
 function escape(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
@@ -52,13 +52,13 @@ function escape(str) {
 }
 
 function createTweetElement(tweets) {
-let user = tweets.user.name;
-let avatar = tweets.user.avatars.small;
- let userHandle = tweets.user.handle;
- let content = tweets.content.text;
- let dateCreated = tweets.created_at;
- const tweetHTML =
-`<article>
+  let user = tweets.user.name;
+  let avatar = tweets.user.avatars.small;
+  let userHandle = tweets.user.handle;
+  let content = tweets.content.text;
+  let dateCreated = tweets.created_at;
+  const tweetHTML =
+    `<article>
 <header>
 <img class="avatar" src="${escape(avatar)}" />
 <h3 class="userName">${escape(user)}</h3>
@@ -77,13 +77,14 @@ let avatar = tweets.user.avatars.small;
  </footer>
 </article>`;
 
-return tweetHTML;
-  }
+  return tweetHTML;
+}
+
 
 function renderTweets(tweets) {
   tweets.forEach(function(tweet) {
-     $("#tweets-container").prepend(createTweetElement(tweet));
-  console.log(tweet);
+    $("#tweets-container").prepend(createTweetElement(tweet));
+    console.log(tweet);
   });
 }
 
@@ -92,55 +93,48 @@ function renderTweets(tweets) {
 $(document).ready(function() {
   renderTweets(data);
 
+  $("#newTweet").on("submit", function(event) {
+    event.preventDefault();
+    let tweetChar = $("#newTweet textarea").val().length;
+    if (tweetChar > 140) {
+      alert("It's a tweet, not an essay! Try again");
+    } else if (tweetChar === 0) {
+      alert("Come on, you have to tweet something!");
+    } else {
 
-$( "#newTweet" ).on( "submit", function( event ) {
-  event.preventDefault();
-  let tweetChar = $("#newTweet textarea").val().length;
-  if(tweetChar > 140) {
-    alert("It's a tweet, not an essay! Try again");
-  } else if (tweetChar === 0) {
-    alert("Come on, you have to tweet something!");
-  } else {
-
-     $.ajax({
-         type: "POST",
-         url:"/tweets",
-         data: $("#newTweet").serialize(),
-         success: function(data){
-
-         loadTweets();
-         $("#tweetSubmit").val("");
-       }
-       });
-     }
-     });
-
-function loadTweets() {
-  $.ajax({
+      $.ajax({
+        type: "POST",
         url: "/tweets",
-        type: "GET",
-        dataType: "json",
-success: function (data) {
-$("#tweets-container").empty();
-renderTweets(data);
+        data: $("#newTweet").serialize(),
+        success: function(data) {
+          loadTweets();
+          $("#tweetSubmit").val("");
         }
       });
     }
- loadTweets();
+  });
 
-
-
-     $(".new-tweet").hide();
-    $("#compose").on("click", function(){
-      $(".new-tweet").slideToggle();
-      $("textarea").focus();
+  function loadTweets() {
+    $.ajax({
+      url: "/tweets",
+      type: "GET",
+      dataType: "json",
+      success: function(data) {
+        $("#tweets-container").empty();
+        renderTweets(data);
+      }
     });
+  }
+  loadTweets();
 
- });
+  $(".new-tweet").hide();
 
+  $("#compose").on("click", function() {
+    $(".new-tweet").slideToggle();
+    $("textarea").focus();
+  });
 
-
-
+});
 
 
 

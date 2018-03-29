@@ -1,152 +1,113 @@
 
-nav button {
-  float:right;
-  border-radius:6px;
-  background-color:#F0FFFF;
-  width:110px;
-  height:50px;
-  font-size:15px;
-  margin-top:10px;
-  color:#00a087;
-  border: 1px solid black;
-  opacity:0.7;
-}
-
-nav button:hover {
-  opacity:1;
-  cursor:pointer;
-}
 
 .new-tweet {
-  background-color: #E8E8E8;
-  padding-top:1px;
-  border-radius:5px;
-  padding-bottom:10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-left: 2em;
-  margin-right:2em;
-  margin-bottom:2em;
+     background-color: #E8E8E8;
+     padding-top:1px;
+     border-radius:5px;
+     padding-bottom:10px;
+     padding-left: 10px;
+     padding-right: 10px;
+     margin-left: 2em;
+     margin-right:2em;
+     margin-bottom:2em;
 }
-
-form input {
-  cursor:pointer;
+ form input {
+     cursor:pointer;
 }
-
-hr {
-  margin-bottom:20px;
-  argin-top:0px;
-  border: 0;
-  height: 1px;
-  background: #333;
-  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+ hr {
+     margin-bottom:20px;
+     argin-top:0px;
+     border: 0;
+     height: 1px;
+     background: #333;
+     background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
-
-h2 {
-  text-align:left;
-  margin-bottom:3px;
-  margin-top:5px;
+ h2 {
+     text-align:left;
+     margin-bottom:3px;
+     margin-top:5px;
 }
-
-form textarea {
-  padding-top:5px;
-  padding-left:5px;
-  padding-right:5px;
-  padding-bottom:5px;
-  width:100%;
-  margin-bottom: 5px;
+ form textarea {
+     padding-top:5px;
+     padding-left:5px;
+     padding-right:5px;
+     padding-bottom:5px;
+     width:100%;
+     margin-bottom: 5px;
 }
-
-form .counter {
-  float:right;
+ form .counter {
+     float:right;
 }
-
-
-article {
-  margin-left: 2em;
-  margin-right:2em;
-  margin-top:2em;
-  margin-bottom:2em;
-  border-radius:5px;
-  border: 1px solid lightgray;
-  opacity:0.7;
-
+ article {
+     margin-left: 2em;
+     margin-right:2em;
+     margin-top:2em;
+     margin-bottom:2em;
+     border-radius:5px;
+     border: 1px solid lightgray;
+     opacity:0.7;
 }
-article header {
-  background-color: #F5F5F5;
-  margin-top:0px auto;
-  height:80px;
-  border-radius: 5px;
-  padding-top: 2px;
-  padding-right: 10px;
-  padding-left:10px;
+ article header {
+     background-color: #F5F5F5;
+     margin-top:0px auto;
+     height:80px;
+     border-radius: 5px;
+     padding-top: 2px;
+     padding-right: 10px;
+     padding-left:10px;
 }
-
-
-
-article .avatar {
-  float:left;
-  height:60px;
-  width:60px;
-  padding-left:10px;
-  padding-right:10px;
-  padding-top: 10px;
+ article .avatar {
+     float:left;
+     height:60px;
+     width:60px;
+     padding-left:10px;
+     padding-right:10px;
+     padding-top: 10px;
 }
-
-article:hover {
-  opacity: 1;
-  border: 1px solid black;
+ article:hover {
+     opacity: 1;
+     border: 1px solid black;
 }
-
-article:hover .svg-inline--fa {
-  visibility:visible;
-  cursor:pointer;
+ article:hover .svg-inline--fa {
+     visibility:visible;
+     cursor:pointer;
 }
-
-article header .userName {
-  float:left;
-  font-size: 22px;
-  font-weight:700;
-  vertical-align:top;
+ article header .userName {
+     float:left;
+     font-size: 22px;
+     font-weight:700;
+     vertical-align:top;
 }
-
-article header .handle {
-  float:right;
-  margin-right: 0;
-  color:gray;
+ article header .handle {
+     float:right;
+     margin-right: 0;
+     color:gray;
 }
-
-.tweet-content {
-  font-size:1em;
-  text-align:left;
-  padding-left:10px;
-  padding-right:10px;
-  padding-bottom: 5px;
-  padding-top: 5px;
-  word-wrap:break-word;
+ .tweet-content {
+     font-size:1em;
+     text-align:left;
+     padding-left:10px;
+     padding-right:10px;
+     padding-bottom: 5px;
+     padding-top: 5px;
+     word-wrap:break-word;
 }
-
-article footer {
-  border-top:2px solid ;
-  border-top-color: #E8E8E8;
-  padding-bottom: 3px;
+ article footer {
+     border-top:2px solid ;
+     border-top-color: #E8E8E8;
+     padding-bottom: 3px;
 }
-
-article footer .svg-inline--fa {
-  margin-right:5px;
-  visibility: hidden;
-  color:#00a087;
-
+ article footer .svg-inline--fa {
+     margin-right:5px;
+     visibility: hidden;
+     color:#00a087;
 }
-
-article footer .date {
-  padding-left:10px;
-
+ article footer .date {
+     padding-left:10px;
 }
-
-article footer .icons {
-  float: right;
-  margin-top: -30px;
+ article footer .icons {
+     float: right;
+     margin-top: -30px;
 }
 
 

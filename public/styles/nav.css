@@ -1,49 +1,40 @@
-
-nav {
-  position:fixed;
-  background-color: #00a087;
-  width:100%;
-  height:80px;
-  padding-left: 2em;
-  padding-right: 2em;
-  z-index: 1000;
-
+ nav {
+     position:fixed;
+     background-color: #00a087;
+     width:100%;
+     height:80px;
+     padding-left: 2em;
+     padding-right: 2em;
+     z-index: 1000;
 }
-
-#nav-bar .header {
- position:absolute;
-  margin-left:10px;
-  font-size:2.5em;
-  color:#e8fdff;
-  line-height: 2em;
-
+ #nav-bar .header {
+     position:absolute;
+     margin-left:10px;
+     font-size:2.5em;
+     color:#e8fdff;
+     line-height: 2em;
 }
-
-#nav-bar .logo {
-  width:80px;
-  height:80px;
-  margin-right:10px;
+ #nav-bar .logo {
+     width:80px;
+     height:80px;
+     margin-right:10px;
 }
-
-
-nav img, span {
-  float:left;
+ nav img, span {
+     float:left;
 }
-
-nav button {
-  float:right;
-  border-radius:6px;
-  background-color:#F0FFFF;
-  width:110px;
-  height:50px;
-  font-size:15px;
-  margin-top:10px;
-  color:#00a087;
-  border: 1px solid black;
-  opacity:0.7;
+ nav button {
+     float:right;
+     border-radius:6px;
+     background-color:#F0FFFF;
+     width:110px;
+     height:50px;
+     font-size:15px;
+     margin-top:10px;
+     color:#00a087;
+     border: 1px solid black;
+     opacity:0.7;
 }
-
-nav button:hover {
-  opacity:1;
-  cursor:pointer;
+ nav button:hover {
+     opacity:1;
+     cursor:pointer;
 }
