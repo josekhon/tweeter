@@ -1,4 +1,5 @@
 
+/*Compose Tweet Form*/
 
 .new-tweet {
      background-color: #E8E8E8;
@@ -14,15 +15,15 @@
  form input {
      cursor:pointer;
 }
- hr {
+form  hr {
      margin-bottom:20px;
-     argin-top:0px;
+     margin-top:0px;
      border: 0;
      height: 1px;
      background: #333;
      background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
- h2 {
+ form h2 {
      text-align:left;
      margin-bottom:3px;
      margin-top:5px;
@@ -38,6 +39,9 @@
  form .counter {
      float:right;
 }
+
+/*Article populated by Jquery*/
+
  article {
      margin-left: 2em;
      margin-right:2em;
@@ -47,6 +51,8 @@
      border: 1px solid lightgray;
      opacity:0.7;
 }
+/*Article Header*/
+
  article header {
      background-color: #F5F5F5;
      margin-top:0px auto;
@@ -56,21 +62,13 @@
      padding-right: 10px;
      padding-left:10px;
 }
- article .avatar {
+ article header .avatar {
      float:left;
      height:60px;
      width:60px;
      padding-left:10px;
      padding-right:10px;
      padding-top: 10px;
-}
- article:hover {
-     opacity: 1;
-     border: 1px solid black;
-}
- article:hover .svg-inline--fa {
-     visibility:visible;
-     cursor:pointer;
 }
  article header .userName {
      float:left;
@@ -83,6 +81,9 @@
      margin-right: 0;
      color:gray;
 }
+
+/*Tweet Content */
+
  .tweet-content {
      font-size:1em;
      text-align:left;
@@ -92,16 +93,15 @@
      padding-top: 5px;
      word-wrap:break-word;
 }
+
+ /*Article Footer*/
+
  article footer {
      border-top:2px solid ;
      border-top-color: #E8E8E8;
      padding-bottom: 3px;
 }
- article footer .svg-inline--fa {
-     margin-right:5px;
-     visibility: hidden;
-     color:#00a087;
-}
+
  article footer .date {
      padding-left:10px;
 }
@@ -110,5 +110,22 @@
      margin-top: -30px;
 }
 
+ article footer .svg-inline--fa {
+     margin-right:5px;
+     visibility: hidden;
+     color:#00a087;
+}
+
+
+/*Article hover states for article body and footer icons*/
+
+ article:hover {
+     opacity: 1;
+     border: 1px solid black;
+}
+ article:hover .svg-inline--fa {
+     visibility:visible;
+     cursor:pointer;
+}
 
 

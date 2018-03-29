@@ -1,3 +1,4 @@
+// Character count on compose tweet form
 
 $(document).ready(function(){
   $("textarea").keyup(function(){

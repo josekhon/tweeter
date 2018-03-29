@@ -1,3 +1,5 @@
+/*Navbar*/
+
  nav {
      position:fixed;
      background-color: #00a087;
@@ -34,6 +36,8 @@
      border: 1px solid black;
      opacity:0.7;
 }
+/*Navbar Compose button hover state*/
+
  nav button:hover {
      opacity:1;
      cursor:pointer;

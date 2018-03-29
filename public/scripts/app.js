@@ -1,55 +1,14 @@
-const data = [{
-    "user": {
-      "name": "Newton",
-      "avatars": {
-        "small": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-        "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-        "large": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-      },
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": {
-        "small": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-        "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-        "large": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-      },
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  },
-  {
-    "user": {
-      "name": "Johann von Goethe",
-      "avatars": {
-        "small": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-        "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-        "large": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-      },
-      "handle": "@johann49"
-    },
-    "content": {
-      "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-    },
-    "created_at": 1461113796368
-  }
-];
+
+// Function to re-encode text to convert unsafe characters
+//encoded into safe encoded representation
 
 function escape(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
+
+// Takes the Object database and creates HTML article
 
 function createTweetElement(tweets) {
   let user = tweets.user.name;
@@ -58,7 +17,7 @@ function createTweetElement(tweets) {
   let content = tweets.content.text;
   let dateCreated = tweets.created_at;
   const tweetHTML =
-    `<article>
+`<article>
 <header>
 <img class="avatar" src="${escape(avatar)}" />
 <h3 class="userName">${escape(user)}</h3>
@@ -80,18 +39,18 @@ function createTweetElement(tweets) {
   return tweetHTML;
 }
 
+// Array of tweets taken and prepended to the tweets container section
 
 function renderTweets(tweets) {
   tweets.forEach(function(tweet) {
     $("#tweets-container").prepend(createTweetElement(tweet));
-    console.log(tweet);
   });
 }
 
 
 
 $(document).ready(function() {
-  renderTweets(data);
+
 
   $("#newTweet").on("submit", function(event) {
     event.preventDefault();
@@ -109,10 +68,15 @@ $(document).ready(function() {
         success: function(data) {
           loadTweets();
           $("#tweetSubmit").val("");
+          $(".new-tweet").hide();
+
         }
       });
     }
   });
+
+// Ajax used to GET tweets as a JSON object
+//If Successful then tweet is prepended to tweets container calling the render function
 
   function loadTweets() {
     $.ajax({
@@ -127,11 +91,13 @@ $(document).ready(function() {
   }
   loadTweets();
 
-  $(".new-tweet").hide();
+// Toggles the compose form when Compose button on the navbar clicked
 
+  $(".new-tweet").hide();
   $("#compose").on("click", function() {
     $(".new-tweet").slideToggle();
     $("textarea").focus();
+
   });
 
 });
