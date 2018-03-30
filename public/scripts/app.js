@@ -16,6 +16,7 @@ function createTweetElement(tweets) {
   let userHandle = tweets.user.handle;
   let content = tweets.content.text;
   let dateCreated = tweets.created_at;
+  let heartClasses = tweets.liked ? 'liked' : '';
   const tweetHTML =
 `<article>
 <header>
@@ -29,7 +30,7 @@ function createTweetElement(tweets) {
 <p class="date">${escape(dateCreated)} Days ago</p>
 </div>
 <div class="icons">
-     <i class="fas fa-heart"></i>
+     <i class="fas fa-heart ${heartClasses}" data-tweet="${tweets._id}"></i>
      <i class="fas fa-flag"></i>
      <i class="fas fa-retweet"></i>
    </div>
@@ -38,6 +39,8 @@ function createTweetElement(tweets) {
 
   return tweetHTML;
 }
+
+
 
 // Array of tweets taken and prepended to the tweets container section
 
@@ -74,6 +77,25 @@ $(document).ready(function() {
       });
     }
   });
+
+  $("body").on("click", ".fa-heart", function(event) {
+    var button = $(this);
+    var tweetID = button.attr("data-tweet");
+    console.log(button);
+    $.ajax({
+      type:"PUT",
+      url:`/tweets/${tweetID}/liked`,
+      success: data => {
+      button.toggleClass("liked");
+
+    }
+    });
+
+  });
+
+
+
+
 
 // Ajax used to GET tweets as a JSON object
 //If Successful then tweet is prepended to tweets container calling the render function

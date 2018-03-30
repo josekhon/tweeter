@@ -1,6 +1,6 @@
 "use strict";
 
-
+const ObjectId = require("mongodb").ObjectID;
 // Defines helper functions for saving and getting tweets, using the database `db`
 module.exports = function makeDataHelpers(db) {
   return {
@@ -21,9 +21,39 @@ module.exports = function makeDataHelpers(db) {
         const sortNewestFirst = (a, b) => a.created_at - b.created_at;
         callback(null, res.sort(sortNewestFirst));
     });
+  },
+  likeTweet:function(id, callback) {
 
+    db.collection("tweets").findOne({_id:ObjectId(id)}, function(err, tweet) {
+
+      if(err) {
+        return callback(err);
+      }
+
+      if (tweet.liked ===true) {
+        console.log('tweet is liked', tweet.liked)
+        db.collection("tweets").updateOne({_id: ObjectId(id)}, {$set: {"liked":false}}, function(err, result) {
+          if (err) {
+            return callback(err);
+          }
+
+
+          return callback(null, false);
+        });
+      } else if (tweet.liked===false || tweet.liked===undefined) {
+        console.log('tweet is NOT liked', tweet.liked)
+        db.collection("tweets").updateOne({_id:ObjectId(id)}, {$set: {"liked":true}}, function(err, result) {
+          if (err) {
+            return callback(err);
+          }
+
+          return callback(null, true);
+        } );
+      }
+
+      });
+    }
+  };
   }
-}
 
-}
 

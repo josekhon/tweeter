@@ -117,6 +117,10 @@ form  hr {
      color:#00a087;
 }
 
+article footer .svg-inline--fa.liked {
+    color: red;
+}
+
 
 /*Article hover states for article body and footer icons*/
 
