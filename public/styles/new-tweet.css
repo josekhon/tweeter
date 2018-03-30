@@ -56,7 +56,7 @@ form  hr {
  article header {
      background-color: #F5F5F5;
      margin-top:0px auto;
-     height:80px;
+     height:70px;
      border-radius: 5px;
      padding-top: 2px;
      padding-right: 10px;
@@ -97,6 +97,7 @@ form  hr {
  /*Article Footer*/
 
  article footer {
+     height:50px;
      border-top:2px solid ;
      border-top-color: #E8E8E8;
      padding-bottom: 3px;
