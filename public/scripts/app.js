@@ -27,7 +27,7 @@ function createTweetElement(tweets) {
  <p class="tweet-content">${escape(content)}</p>
 <footer>
 <div>
-<p class="date">${escape(dateCreated)} Days ago</p>
+<p class="date">${escape(timeSince(Date.now(), dateCreated))}</p>
 </div>
 <div class="icons">
      <i class="fas fa-heart ${heartClasses}" data-tweet="${tweets._id}"></i>
@@ -39,6 +39,33 @@ function createTweetElement(tweets) {
 
   return tweetHTML;
 }
+
+function timeSince(now, date) {
+let seconds = Math.floor(now - date) / 1000;
+let interval = Math.floor(seconds / 31536000);
+  if (interval > 1) {
+    return interval + " years ago";
+  }
+  interval = Math.floor(seconds / 2592000);
+  if (interval > 1) {
+    return interval + " months ago";
+  }
+  interval = Math.floor(seconds / 86400);
+  if (interval > 1) {
+    return interval + " days ago";
+  }
+  interval = Math.floor(seconds / 3600);
+  if (interval > 1) {
+    return interval + " hours ago";
+  }
+  interval = Math.floor(seconds / 60);
+  if (interval > 1) {
+    return interval + " minutes ago";
+  }
+  return Math.floor(seconds) + " seconds ago";
+}
+
+
 
 
 
