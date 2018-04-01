@@ -44,6 +44,7 @@
      margin-right:2em;
      margin-top:2em;
      margin-bottom:2em;
+     margin-top: 2em;
      border-radius:5px;
      border: 1px solid lightgray;
      opacity:0.7;
@@ -52,9 +53,9 @@
  article header {
      background-color: #F5F5F5;
      margin-top:0px auto;
-     height:70px;
+     height:75px;
      border-radius: 5px;
-     padding-top: 2px;
+     padding-top: 5px;
      padding-right: 10px;
      padding-left:10px;
 }

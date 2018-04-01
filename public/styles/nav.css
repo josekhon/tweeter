@@ -3,10 +3,12 @@
      position:fixed;
      background-color: #00a087;
      width:100%;
-     height:80px;
+     height:100px;
      padding-left: 2em;
      padding-right: 2em;
      z-index: 1000;
+     padding-top: 5px;
+     padding-bottom:5px;
 }
  #nav-bar .header {
      position:absolute;
