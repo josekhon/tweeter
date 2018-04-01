@@ -1,7 +1,6 @@
 
 /*Compose Tweet Form*/
-
-.new-tweet {
+ .new-tweet {
      background-color: #E8E8E8;
      padding-top:1px;
      border-radius:5px;
@@ -15,7 +14,7 @@
  form input {
      cursor:pointer;
 }
-form  hr {
+ form hr {
      margin-bottom:20px;
      margin-top:0px;
      border: 0;
@@ -39,9 +38,7 @@ form  hr {
  form .counter {
      float:right;
 }
-
 /*Article populated by Jquery*/
-
  article {
      margin-left: 2em;
      margin-right:2em;
@@ -52,7 +49,6 @@ form  hr {
      opacity:0.7;
 }
 /*Article Header*/
-
  article header {
      background-color: #F5F5F5;
      margin-top:0px auto;
@@ -81,9 +77,7 @@ form  hr {
      margin-right: 0;
      color:gray;
 }
-
 /*Tweet Content */
-
  .tweet-content {
      font-size:1em;
      text-align:left;
@@ -93,16 +87,13 @@ form  hr {
      padding-top: 5px;
      word-wrap:break-word;
 }
-
- /*Article Footer*/
-
+/*Article Footer*/
  article footer {
      height:50px;
      border-top:2px solid ;
      border-top-color: #E8E8E8;
      padding-bottom: 3px;
 }
-
  article footer .date {
      padding-left:10px;
 }
@@ -110,20 +101,15 @@ form  hr {
      float: right;
      margin-top: -30px;
 }
-
  article footer .svg-inline--fa {
      margin-right:5px;
      visibility: hidden;
      color:#00a087;
 }
-
-article footer .svg-inline--fa.liked {
-    color: red;
+ article footer .svg-inline--fa.liked {
+     color: red;
 }
-
-
 /*Article hover states for article body and footer icons*/
-
  article:hover {
      opacity: 1;
      border: 1px solid black;
@@ -132,5 +118,11 @@ article footer .svg-inline--fa.liked {
      visibility:visible;
      cursor:pointer;
 }
-
-
+ @media only screen and (max-width: 600px) {
+     article header .userName {
+         font-size:14px;
+    }
+     article header .handle {
+         font-size: 11px;
+    }
+}

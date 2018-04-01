@@ -1,16 +1,18 @@
 "use strict";
 
-const userHelper    = require("../lib/util/user-helper")
+const userHelper = require("../lib/util/user-helper")
 
-const express       = require('express');
-const tweetsRoutes  = express.Router();
+const express = require('express');
+const tweetsRoutes = express.Router();
 
 module.exports = function(DataHelpers) {
 
   tweetsRoutes.get("/", function(req, res) {
     DataHelpers.getTweets((err, tweets) => {
       if (err) {
-        res.status(500).json({ error: err.message });
+        res.status(500).json({
+          error: err.message
+        });
       } else {
         res.json(tweets);
       }
@@ -19,7 +21,9 @@ module.exports = function(DataHelpers) {
 
   tweetsRoutes.post("/", function(req, res) {
     if (!req.body.text) {
-      res.status(400).json({ error: 'invalid request: no data in POST body'});
+      res.status(400).json({
+        error: 'invalid request: no data in POST body'
+      });
       return;
     }
 
@@ -29,14 +33,16 @@ module.exports = function(DataHelpers) {
       content: {
         text: req.body.text
       },
-      liked:false,
+      liked: false,
       created_at: Date.now()
 
     };
 
     DataHelpers.saveTweet(tweet, (err) => {
       if (err) {
-        res.status(500).json({ error: err.message });
+        res.status(500).json({
+          error: err.message
+        });
       } else {
         res.status(201).send();
       }
@@ -46,12 +52,12 @@ module.exports = function(DataHelpers) {
   tweetsRoutes.put("/:id/liked", function(req, res) {
 
     DataHelpers.likeTweet(req.params.id, function(err, tweet) {
-       if(err) {
+      if (err) {
         res.status(401).send();
-       } else {
+      } else {
         res.status(201).send();
-       }
-  });
+      }
+    });
   });
 
   return tweetsRoutes;
